@@ -12,7 +12,7 @@ import Alamofire
 
 enum NetworkResponse {
     case Success(NSHTTPURLResponse)
-    case Failure(Int, NSError)
+    case Failure(Int, NSError, NetworkTask)
 }
 
 typealias NetworkRequest = Alamofire.Request
@@ -41,7 +41,7 @@ class NetworkTask {
             .responseJSON { (req, res, dict, err) in
                 let builtResponse: NetworkResponse
                 if (err != nil) {
-                    builtResponse = NetworkResponse.Failure(res?.statusCode ?? err!.code, err!)
+                    builtResponse = NetworkResponse.Failure(res?.statusCode ?? err!.code, err!, self)
                 } else {
                     builtResponse = NetworkResponse.Success(res!)
                 }
