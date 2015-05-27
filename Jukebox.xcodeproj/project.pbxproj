@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		732608382B86EF090CFEFA72 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41BD033C3B5DAF416F30D5CD /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		902AF7EE1B1597DB00C8EABC /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AF7ED1B1597DB00C8EABC /* NetworkTask.swift */; };
 		9039C3AF1B15092F005E114E /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9039C3AE1B15092F005E114E /* Artist.swift */; };
 		9039C3B11B150B25005E114E /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9039C3B01B150B25005E114E /* Album.swift */; };
 		9039C3B31B1512A2005E114E /* NSDate+Argo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9039C3B21B1512A2005E114E /* NSDate+Argo.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		41BD033C3B5DAF416F30D5CD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E7BCDB360E09DB7F1E220D /* Pods_Jukebox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jukebox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		902AF7ED1B1597DB00C8EABC /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		9039C3AE1B15092F005E114E /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		9039C3B01B150B25005E114E /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		9039C3B21B1512A2005E114E /* NSDate+Argo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Argo.swift"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		9039C3AC1B14FAE3005E114E /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				902AF7ED1B1597DB00C8EABC /* NetworkTask.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			files = (
 				9039C3B31B1512A2005E114E /* NSDate+Argo.swift in Sources */,
 				9039C3AF1B15092F005E114E /* Artist.swift in Sources */,
+				902AF7EE1B1597DB00C8EABC /* NetworkTask.swift in Sources */,
 				905E6A5A1B14F337002C5E2A /* ArtistsViewController.swift in Sources */,
 				905E6A581B14F337002C5E2A /* AppDelegate.swift in Sources */,
 				9039C3B11B150B25005E114E /* Album.swift in Sources */,
