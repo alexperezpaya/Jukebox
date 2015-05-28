@@ -12,7 +12,7 @@ import Argo
 
 extension NSURL: Decodable {
     public static func decode(json: JSON) -> Decoded<NSURL> {
-        // We are receiving a string as parameter
+        // parsing urls with argo :)
         switch json {
         case .String(let urlString):
             return Decoded<NSURL>.fromOptional(NSURL(string: urlString))

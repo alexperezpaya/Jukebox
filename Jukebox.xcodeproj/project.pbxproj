@@ -105,7 +105,7 @@
 				9039C3AB1B14FADC005E114E /* Extensions */,
 				900C690D1B1752AB00250CAF /* Collections */,
 				9039C3A91B14FAB3005E114E /* Models */,
-				900C69061B17275500250CAF /* Manager */,
+				900C69061B17275500250CAF /* Managers */,
 				9039C3AD1B14FBAB005E114E /* ViewControllers */,
 				9039C3A71B14FA96005E114E /* Views */,
 				905E6A571B14F337002C5E2A /* AppDelegate.swift */,
@@ -131,12 +131,12 @@
 			name = NetworkInteractors;
 			sourceTree = "<group>";
 		};
-		900C69061B17275500250CAF /* Manager */ = {
+		900C69061B17275500250CAF /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				900C69071B17276900250CAF /* AlbumsManager.swift */,
 			);
-			name = Manager;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		900C690D1B1752AB00250CAF /* Collections */ = {

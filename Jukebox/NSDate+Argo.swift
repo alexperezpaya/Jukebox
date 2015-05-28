@@ -10,7 +10,7 @@ import Foundation
 
 import Argo
 
-// Conversion helper of string into time
+// Conversion helper of string into time so we can parse ItunesDates from Argo
 
 extension NSDate: Decodable {
     public static func decode(json: JSON) -> Decoded<NSDate> {

@@ -41,6 +41,17 @@ extension Artist: Decodable {
         )
     }
     
+    // Functional programing ftw :)
+    // The haskell way
+    
+    // Sweet reads:
+    
+    // Parsers vs Argo
+    // https://robots.thoughtbot.com/efficient-json-in-swift-with-functional-concepts-and-generics
+    
+    // https://robots.thoughtbot.com/functional-swift-for-dealing-with-optional-values
+    // https://robots.thoughtbot.com/parsing-embedded-json-and-arrays-in-swift
+    
     static func decode(j: JSON) -> Decoded<Artist> {
         return Artist.create
             <^> j <| "artistType"

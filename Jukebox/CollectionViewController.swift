@@ -44,9 +44,17 @@ class CollectionViewController: UITableViewController {
     func loadData () {
         SVProgressHUD.showInfoWithStatus("Loading your music...")
         self.manager.fetch() { collections in
+            
+            // We are using a TableViewController
+            // So there is nothing more to see here.
+            // Displaying thi date its really easy!
+            // We will receive a callback from the manager
+            // when the its a task/tasks completed so we can paint the view.
+            
             SVProgressHUD.dismiss()
             self.collections = collections
             self.tableView.reloadData()
+
         }
     }
 
@@ -83,8 +91,8 @@ extension CollectionViewController: UITableViewDataSource {
             // Styling form image color palette
             let palette = image.colorArt(CGSize(width: 100, height: 100))
             cell?.backgroundColor = palette?.backgroundColor
-            cell?.textLabel?.textColor = palette?.primaryColor
-            cell?.detailTextLabel?.textColor = palette?.detailColor
+            cell?.textLabel?.textColor = palette?.primaryColor.colorWithAlphaComponent(0.7)
+            cell?.detailTextLabel?.textColor = palette?.detailColor.colorWithAlphaComponent(0.7)
         }
         
         return cell!

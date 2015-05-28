@@ -18,7 +18,7 @@ extension AlbumCollection {
     func recentAlbum() -> Album? {
         return sortedAlbums().first
     }
-    
+
     func sortedAlbums() -> [Album] {
         var sortedAlbums = self.albums
         sortedAlbums.sort { left, right in

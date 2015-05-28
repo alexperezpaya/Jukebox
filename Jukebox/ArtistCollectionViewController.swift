@@ -53,8 +53,8 @@ extension ArtistCollectionViewController: UITableViewDataSource {
             // Styling form image color palette
             let palette = image.colorArt(CGSize(width: 100, height: 100))
             cell?.backgroundColor = palette?.backgroundColor
-            cell?.textLabel?.textColor = palette?.primaryColor
-            cell?.detailTextLabel?.textColor = palette?.detailColor
+            cell?.textLabel?.textColor = palette?.primaryColor.colorWithAlphaComponent(0.7)
+            cell?.detailTextLabel?.textColor = palette?.detailColor.colorWithAlphaComponent(0.7)
         }
         
         return cell!

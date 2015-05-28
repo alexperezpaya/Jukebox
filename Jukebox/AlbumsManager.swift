@@ -23,10 +23,21 @@ class AlbumsManager {
         for s in self.searchs {
             ItunesLookupAlbumsInteractor.request(s) { collection, failure in
                 if let f = failure {
+                    // We want our task to be retried if it fails
+                    // So user is agnostic of network problems
+                    
+                    // This is the main reason to create network tasks,
+                    // so we can have a generic way to manage our failures in requests
                     f.task.retry()
+
                 } else {
+                    
+                    // Its good if we are here :)
+                    // Return the callback and paint our view!
+                    
                     self.collections.append(collection!)
                     callback(self.collections)
+
                 }
             }
         }

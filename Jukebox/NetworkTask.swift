@@ -17,11 +17,13 @@ enum NetworkResponse {
 
 typealias NetworkRequest = Alamofire.Request
 
+// A request builder its a function passed that will return an alamofire request
+// So this request its needed to build a NetworkTask
+
 typealias NetworkRequestBuilder = () -> (NetworkRequest)
 typealias NetworkTaskCallback = (NetworkResponse) -> ()
 
 class NetworkTask {
-//    let body: NetworkBody?
     
     let callback: NetworkTaskCallback
     let builder: NetworkRequestBuilder

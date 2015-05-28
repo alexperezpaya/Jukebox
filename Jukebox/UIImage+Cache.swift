@@ -10,7 +10,9 @@ import Foundation
 import SDWebImage
 
 extension UIImage {
-
+    
+    // We created this custom cache using SDWebImage for the storage abstraction
+    // we need it so we can get images fastly and calculate our colors from them fast too :)
     static func loadImageFromUrlWithCache(url: NSURL) -> UIImage {
         let cache = SDImageCache()
         if let memoryImage = cache.imageFromMemoryCacheForKey(url.absoluteString!) {

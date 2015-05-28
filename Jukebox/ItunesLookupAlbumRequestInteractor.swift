@@ -20,6 +20,11 @@ struct ItunesLookupAlbumsInteractorFailure {
     let task: NetworkTask
 }
 
+// We build here our interactor, this will own our network task and handle the our parsing
+// In another case we could take advange of typing and our argo models to handle parsing
+// But having different models in the same array makes our job hard, so we have to handle this here
+// Checking what type of result it is, and decoding it with it corresponding model
+
 class ItunesLookupAlbumsInteractor {
     static func request(albumsSearch: AlbumsLookupSearch, callback: (AlbumCollection?, ItunesLookupAlbumsInteractorFailure?) -> ()) {
         ItunesRequest.sharedInstance.lookup(albumsSearch.id, entity: "album", media: "music", limit: albumsSearch.limit ?? 0) { result in
@@ -40,6 +45,9 @@ class ItunesLookupAlbumsInteractor {
                             println("Unknown type")
                     }
                 }
+                
+                // Itunes returns multiple objects of different types in an array
+                // So we are creating a Collection with our different data
 
                 callback(AlbumCollection(artist: artist!, albums: albums), nil)
             
