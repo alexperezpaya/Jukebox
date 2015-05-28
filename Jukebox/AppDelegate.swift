@@ -18,29 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        ItunesRequest.sharedInstance.lookup(16252655, entity: "album", media: "music", limit: 7) { result in
-            switch result {
-            case .Success(let resp, let json):
-                let typedJson = json! as! [String: AnyObject]
-                
-                for result in (typedJson["results"] as! [[String: AnyObject]]) {
-                    let parsedJson = JSON.parse(result)
-                    switch (result["wrapperType"] as! String!) {
-                    case "artist":
-                        Artist.decode(parsedJson)
-                    case "collection":
-                        Album.decode(parsedJson)
-                    default:
-                        println("Unknown type")
-                    }
-                }
-                
-            case .Failure(let resp, let error, let task):
-                println(resp)
-                println(error.localizedDescription)
-                println(error.localizedFailureReason)
-            }
-        }
         return true
     }
 

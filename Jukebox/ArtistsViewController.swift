@@ -10,8 +10,21 @@ import UIKit
 
 class ArtistsViewController: UITableViewController {
 
+    var collections = [AlbumCollection]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ItunesLookupAlbumsInteractor.request(
+            AlbumsLookupSearch(id: 16252655, limit: 7)
+        ) { collection, failure in
+            if let f = failure {
+                f.task.retry()
+                println(f.resp!)
+            } else {
+                self.collections.append(collection!)
+            }
+            self.tableView.reloadData()
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,7 +38,7 @@ class ArtistsViewController: UITableViewController {
 
 extension ArtistsViewController: UITableViewDataSource {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.collections.count
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -33,16 +46,18 @@ extension ArtistsViewController: UITableViewDataSource {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let identifier = "artistCell"
-        
+
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! UITableViewCell?
         
         if cell == nil  {
            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: identifier)
         }
         
-        cell?.textLabel?.text = "ODA"
-        cell?.detailTextLabel?.text = "MOFO"
-        cell?.imageView?.image = UIImage(named: "jacku")
+        let collection = self.collections[indexPath.row]
+        
+        cell?.textLabel?.text = collection.artist.artistName
+        cell?.detailTextLabel?.text = "\(collection.albums.count) albums"
+        cell?.imageView?.image = UIImage(data: NSData(contentsOfURL: NSURL(string: collection.albums[0].artworkUrl)!)!)
         
         return cell!
     }

@@ -50,7 +50,7 @@ extension Album: Decodable {
             <^> j <| "artistId"
             <*> j <| "artistName"
             <*> j <| "collectionName"
-            <*> j <| "artworkUrl"
+            <*> j <| "artworkUrl100"
             <*> j <| "collectionPrice"
             <*> j <| "trackCount"
             <*> j <| "releaseDate"

@@ -20,6 +20,7 @@
 		905E6A5F1B14F337002C5E2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 905E6A5E1B14F337002C5E2A /* Images.xcassets */; };
 		905E6A621B14F337002C5E2A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 905E6A601B14F337002C5E2A /* LaunchScreen.xib */; };
 		905E6A6E1B14F337002C5E2A /* JukeboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905E6A6D1B14F337002C5E2A /* JukeboxTests.swift */; };
+		907814E21B170FD1008DAFCD /* ItunesLookupAlbumRequestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907814E11B170FD1008DAFCD /* ItunesLookupAlbumRequestInteractor.swift */; };
 		90AF4B151B1523420027B116 /* NSURL+Argo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF4B141B1523420027B116 /* NSURL+Argo.swift */; };
 		9DCFCEAC715A8FBF58472182 /* Pods_Jukebox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E7BCDB360E09DB7F1E220D /* Pods_Jukebox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		905E6A671B14F337002C5E2A /* JukeboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JukeboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		905E6A6C1B14F337002C5E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		905E6A6D1B14F337002C5E2A /* JukeboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JukeboxTests.swift; sourceTree = "<group>"; };
+		907814E11B170FD1008DAFCD /* ItunesLookupAlbumRequestInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItunesLookupAlbumRequestInteractor.swift; sourceTree = "<group>"; };
 		90AF4B141B1523420027B116 /* NSURL+Argo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+Argo.swift"; sourceTree = "<group>"; };
 		AF14F8931C443F697875E72F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B594380FD144C8184C4781D6 /* Pods-Jukebox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jukebox.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jukebox/Pods-Jukebox.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,21 +91,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		900C69031B171C0300250CAF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				902C7F541B1665BC008D3581 /* Network */,
+				9039C3AC1B14FAE3005E114E /* Library */,
+				9039C3AB1B14FADC005E114E /* Extensions */,
+				9039C3A91B14FAB3005E114E /* Models */,
+				9039C3AD1B14FBAB005E114E /* ViewController */,
+				9039C3A71B14FA96005E114E /* Views */,
+				905E6A571B14F337002C5E2A /* AppDelegate.swift */,
+				905E6A5B1B14F337002C5E2A /* Main.storyboard */,
+				905E6A601B14F337002C5E2A /* LaunchScreen.xib */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		900C69041B171C0C00250CAF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				905E6A5E1B14F337002C5E2A /* Images.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		900C69051B17223D00250CAF /* NetworkInteractors */ = {
+			isa = PBXGroup;
+			children = (
+				907814E11B170FD1008DAFCD /* ItunesLookupAlbumRequestInteractor.swift */,
+			);
+			name = NetworkInteractors;
+			sourceTree = "<group>";
+		};
 		902C7F541B1665BC008D3581 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				902C7F551B1665C6008D3581 /* Itunes */,
+				900C69051B17223D00250CAF /* NetworkInteractors */,
+				902C7F551B1665C6008D3581 /* ItunesRequest */,
 			);
 			name = Network;
 			sourceTree = "<group>";
 		};
-		902C7F551B1665C6008D3581 /* Itunes */ = {
+		902C7F551B1665C6008D3581 /* ItunesRequest */ = {
 			isa = PBXGroup;
 			children = (
 				902C7F521B1664A6008D3581 /* ItunesRequest.swift */,
 				902C7F561B166601008D3581 /* ItunesLookupRequest.swift */,
 			);
-			name = Itunes;
+			name = ItunesRequest;
 			sourceTree = "<group>";
 		};
 		9039C3A71B14FA96005E114E /* Views */ = {
@@ -170,16 +205,8 @@
 		905E6A541B14F337002C5E2A /* Jukebox */ = {
 			isa = PBXGroup;
 			children = (
-				902C7F541B1665BC008D3581 /* Network */,
-				9039C3AC1B14FAE3005E114E /* Library */,
-				9039C3AB1B14FADC005E114E /* Extensions */,
-				9039C3A91B14FAB3005E114E /* Models */,
-				9039C3AD1B14FBAB005E114E /* ViewController */,
-				9039C3A71B14FA96005E114E /* Views */,
-				905E6A571B14F337002C5E2A /* AppDelegate.swift */,
-				905E6A5B1B14F337002C5E2A /* Main.storyboard */,
-				905E6A5E1B14F337002C5E2A /* Images.xcassets */,
-				905E6A601B14F337002C5E2A /* LaunchScreen.xib */,
+				900C69031B171C0300250CAF /* Source */,
+				900C69041B171C0C00250CAF /* Resources */,
 				905E6A551B14F337002C5E2A /* Supporting Files */,
 			);
 			path = Jukebox;
@@ -374,6 +401,7 @@
 			files = (
 				9039C3B31B1512A2005E114E /* NSDate+Argo.swift in Sources */,
 				902C7F571B166601008D3581 /* ItunesLookupRequest.swift in Sources */,
+				907814E21B170FD1008DAFCD /* ItunesLookupAlbumRequestInteractor.swift in Sources */,
 				9039C3AF1B15092F005E114E /* Artist.swift in Sources */,
 				902AF7EE1B1597DB00C8EABC /* NetworkTask.swift in Sources */,
 				905E6A5A1B14F337002C5E2A /* ArtistsViewController.swift in Sources */,
