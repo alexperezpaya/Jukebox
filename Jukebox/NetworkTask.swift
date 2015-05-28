@@ -11,8 +11,8 @@ import Foundation
 import Alamofire
 
 enum NetworkResponse {
-    case Success(NSHTTPURLResponse)
-    case Failure(Int, NSError, NetworkTask)
+    case Success(NSHTTPURLResponse, AnyObject?)
+    case Failure(NSHTTPURLResponse?, NSError, NetworkTask)
 }
 
 typealias NetworkRequest = Alamofire.Request
@@ -35,17 +35,14 @@ class NetworkTask {
     
     func try () {
         self.request = self.builder()
-        self.request?
-            .validate(statusCode: 200..<300)
-            .validate(contentType: ["application/json"])
-            .responseJSON { (req, res, dict, err) in
-                let builtResponse: NetworkResponse
-                if (err != nil) {
-                    builtResponse = NetworkResponse.Failure(res?.statusCode ?? err!.code, err!, self)
-                } else {
-                    builtResponse = NetworkResponse.Success(res!)
-                }
-                self.callback(builtResponse)
+        self.request?.responseJSON { (req, res, json, err) in
+            let builtResponse: NetworkResponse
+            if let e = err {
+                builtResponse = NetworkResponse.Failure(res, e, self)
+            } else {
+                builtResponse = NetworkResponse.Success(res!, json)
+            }
+            self.callback(builtResponse)
         }
     }
     
