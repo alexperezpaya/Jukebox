@@ -11,20 +11,16 @@ import UIKit
 class ArtistsViewController: UITableViewController {
 
     var collections = [AlbumCollection]()
+
+    var manager = AlbumsManager(searchs: [
+        AlbumsLookupSearch(id: 148662, limit: 10),
+        AlbumsLookupSearch(id: 6906197, limit: 20),
+        AlbumsLookupSearch(id: 16252655, limit: 7)
+    ])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ItunesLookupAlbumsInteractor.request(
-            AlbumsLookupSearch(id: 16252655, limit: 7)
-        ) { collection, failure in
-            if let f = failure {
-                f.task.retry()
-                println(f.resp!)
-            } else {
-                self.collections.append(collection!)
-            }
-            self.tableView.reloadData()
-        }
+        self.loadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -32,8 +28,17 @@ class ArtistsViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension ArtistsViewController {
+    
+    func loadData () {
+        self.manager.fetch() { collections in
+            self.collections = collections
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
 extension ArtistsViewController: UITableViewDataSource {
