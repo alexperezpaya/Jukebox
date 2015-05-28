@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "014EBC4D16DE9BE11FB13CD0"
+               BlueprintIdentifier = "E5A4865122A4AF14F18BF000"
                BuildableName = "Argo.framework"
                BlueprintName = "Pods-Argo"
                ReferencedContainer = "container:Pods.xcodeproj">

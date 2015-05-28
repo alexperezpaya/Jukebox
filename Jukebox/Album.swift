@@ -18,7 +18,7 @@ struct Album {
     let artworkUrl: String
     let collectionPrice: Float
     let trackCount: Int
-    let releaseDate: String
+    let releaseDate: NSDate
     
     static func create
         (artistId: Int)
@@ -27,7 +27,7 @@ struct Album {
         (artworkUrl: String)
         (collectionPrice: Float)
         (trackCount: Int)
-        (releaseDate: String)
+        (releaseDate: NSDate)
         -> Album
     {
         return Album(

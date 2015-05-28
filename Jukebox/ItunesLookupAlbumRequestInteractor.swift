@@ -14,11 +14,6 @@ struct AlbumsLookupSearch {
     let limit: Int?
 }
 
-struct AlbumCollection {
-    let artist: Artist
-    let albums: [Album]
-}
-
 struct ItunesLookupAlbumsInteractorFailure {
     let resp: NSURLResponse?
     let error: NSError

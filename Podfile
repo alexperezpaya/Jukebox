@@ -4,3 +4,6 @@ use_frameworks!
 
 pod 'Alamofire'
 pod 'Argo'
+
+pod 'SDWebImage'
+pod 'SVProgressHUD'

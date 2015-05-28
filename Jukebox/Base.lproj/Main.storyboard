@@ -4,16 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Artistas-->
+        <!--Collection-->
         <scene sceneID="O9d-hY-geG">
             <objects>
-                <tableViewController storyboardIdentifier="artistsView" title="Artistas" id="zGz-Hz-YFk" customClass="ArtistsViewController" customModule="Jukebox" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="A3L-Bm-7LU">
+                <tableViewController storyboardIdentifier="collectionView" title="Collection" id="zGz-Hz-YFk" customClass="CollectionViewController" customModule="Jukebox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="205" sectionHeaderHeight="22" sectionFooterHeight="22" id="A3L-Bm-7LU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" textLabel="emC-aD-n72" detailTextLabel="PnN-tI-CUL" imageView="cKM-YT-pqn" rowHeight="150" style="IBUITableViewCellStyleSubtitle" id="6t2-Mp-OcN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" textLabel="emC-aD-n72" detailTextLabel="PnN-tI-CUL" imageView="cKM-YT-pqn" rowHeight="200" style="IBUITableViewCellStyleSubtitle" id="6t2-Mp-OcN">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6t2-Mp-OcN" id="XJN-rP-tr2">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -43,6 +43,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Jukebox" id="XTG-6n-lMl"/>
+                    <connections>
+                        <segue destination="TJY-fK-Lfb" kind="show" identifier="showArtistCollection" id="Gge-tI-VBR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixb-AE-mef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,6 +68,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9O7-8v-Rkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-222" y="509"/>
+        </scene>
+        <!--Artistas-->
+        <scene sceneID="5zT-lt-mz0">
+            <objects>
+                <tableViewController storyboardIdentifier="artistView" title="Artistas" id="TJY-fK-Lfb" customClass="ArtistCollectionViewController" customModule="Jukebox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="jPk-cF-80B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="albumView" textLabel="1y6-En-anW" detailTextLabel="9ht-Yu-OpG" imageView="3Fo-cp-Tr8" rowHeight="150" style="IBUITableViewCellStyleSubtitle" id="MPG-B4-aaY">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MPG-B4-aaY" id="1KE-Ly-5ds">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Take ü there" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1y6-En-anW">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="1 album - 6 songs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ht-Yu-OpG">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="jacku" id="3Fo-cp-Tr8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TJY-fK-Lfb" id="dTX-Mx-8fy"/>
+                            <outlet property="delegate" destination="TJY-fK-Lfb" id="2cC-Hc-H5u"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Jack Ü" id="gM2-cD-CoX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unk-jv-gwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="509"/>
         </scene>
     </scenes>
     <resources>

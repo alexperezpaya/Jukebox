@@ -24,7 +24,6 @@ class AlbumsManager {
             ItunesLookupAlbumsInteractor.request(s) { collection, failure in
                 if let f = failure {
                     f.task.retry()
-                    println(f.resp!)
                 } else {
                     self.collections.append(collection!)
                     callback(self.collections)
@@ -32,5 +31,5 @@ class AlbumsManager {
             }
         }
     }
-}
 
+}
